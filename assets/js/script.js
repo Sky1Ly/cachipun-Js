@@ -15,39 +15,54 @@ if (isNaN(solicitudJugadas)) {
 
 
 function jugadas(nroJugadas) {
-    let jugadaMaquina
+    let jugadaMaquina = 0
     let seleccionHumano
     let jugadaHumano
 
     for (let index = 1; index <= nroJugadas; index++) {
+        alert("A continuación seleccione una opción para continuar")
         seleccionHumano = prompt("1 Pierdra, 2 Papel, 3 Tijera")
         jugadaHumano = parseInt(seleccionHumano)
-
-        while (jugadaHumano < 1 && jugadaHumano >3) {
-            alert("Debe Elegir entre los numeros 1, 2, 3")
-            seleccionHumano = prompt("1 Pierdra, 2 Papel, 3 Tijera")
-        }
 
         jugadaMaquina = Math.floor(Math.random() * 3)
 
         switch (jugadaMaquina) {
-            case 1:
+            case 0:
                 if (jugadaHumano == 2) {
-                    alert()
+                    alert("Ha ganado esta ronda, la maquina usó piedra")
+                } else if (jugadaHumano == 1) {
+                    alert("Han empatado")
+                } else {
+                    alert(`Ha ganado la Maquina usando piedra`)
+                }
+                break;
+
+            case 1:
+                if (jugadaHumano == 3) {
+                    alert("Ha ganado esta ronda, la maquina usó papel")
+                } else if (jugadaHumano == 2) {
+                    alert("Han empatado")
+                } else {
+                    alert(`Ha ganado la Maquina usando papel`)
                 }
                 break;
 
             case 2:
-            
-            break;
+                if (jugadaHumano == 1) {
+                    alert("Ha ganado esta ronda, la maquina usó tijeras")
+                } else if (jugadaHumano == 3) {
+                    alert("Han empatado")
+                } else {
+                    alert(`Ha ganado la Maquina usando tijeras`)
+                }
+                break;
 
-            case 3:
-            
-            break;
-        
             default:
+                alert(`La maquina sacó ${jugadaMaquina}`)
                 break;
         }
+
+        jugadaMaquina = 0
 
     }
 }
